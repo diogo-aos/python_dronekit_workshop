@@ -1,3 +1,8 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     VARIABLES, TYPES, INPUT
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #%% create and print variable
 a = 1
 print(a)
@@ -29,6 +34,20 @@ a = float(a)
 print('value of a=', a)
 print('type of a=', type(a))
 
+#%%
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     CONDITIONS
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#%%
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     LISTS
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #%% what about lists?
 lst = [1, 2, 3, 4, 5, 6]
 print('lst=', lst)
@@ -55,6 +74,15 @@ print(lst)
 lst.pop(0)
 print(lst)
 
+
+
+#%%
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     LOOPS
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 #%% how can we go through every value of a list? we can use cycles
 for i in range(len(lst)):
     print(lst[i])
@@ -67,7 +95,16 @@ print(lst)
 
 
 
+
+
 #%% what if we wanted to print each element of the list with 1 second delay?
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     EXTERNAL CODE
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 # we need to import outside modules
 import time
 
@@ -82,6 +119,14 @@ import datetime
 for i in range(len(lst)):
     print(datetime.datetime.now(), lst[i])
     time.sleep(1)
+
+
+#%%
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#     FILES
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 #%% how to store data outside the program? we use files
 with open('test.txt', 'w') as f:
@@ -129,25 +174,7 @@ print(lst3)
 
 #%% write in a format that can be easily parsed after reading
 
-
-
-
-#%% Install dronekit
-# git clone https://github.com/dronekit/dronekit-python
-# pip install /path/to/dronekit-python
-
-#%%
-import dronekit
-
-
-#%%
-vehicle = dronekit.connect('/dev/ttyACM0', wait_ready=True, baud=57600)
-
-#%%
-
-import time
-
-while True:
-    att = vehicle.attitude
-    print(att)
-    time.sleep(1)
+for i in range(len(lst)):
+    with open('test.txt', 'a') as f:
+        f.write(str(lst[i]) + '\n')
+# %%
